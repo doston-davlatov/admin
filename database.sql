@@ -36,11 +36,11 @@ CREATE TABLE projects (
     `description` TEXT,
     `image` VARCHAR(255),
     `link` VARCHAR(255), 
-    `status` ENUM('active', 'inactive') DEFAULT 'active', -- ✅ holati
+    `status` ENUM('active', 'inactive') DEFAULT 'active',
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 
-INSERT INTO users (`name`, `username`, `password`) 
-VALUES ('Doston davlatov', 'admin', 'doson26');
+INSERT INTO users (name, username, password)
+VALUES ('Doston Davlatov', 'admin', '$2y$10$rGZ0FsHyYKPqVGz8JYQYxuXxvczhPp1Gk0YX82nYj9ZlhkD2PoUe2');

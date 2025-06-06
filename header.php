@@ -24,6 +24,14 @@ $menuItems = [
             ["title" => "Yaratish Projectlar", "url" => "create_project.php"],
             ["title" => "Projectlar", "url" => "projects.php"]
         ],
+    ],
+    [
+        "menuTitle" => "Project edit",
+        "icon" => "fas fa-folder",
+        "pages" => [
+            ["title" => "Yangilash Projectni", "url" => "project/edt.php"],
+            ["title" => "Projectlar", "url" => "projects.php"]
+        ],
     ]
 ];
 
