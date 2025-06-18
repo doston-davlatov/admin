@@ -27,20 +27,40 @@ CREATE TABLE users (
 );
 
 -- ======================================================
--- 📝 2. projects (yangiliklar/blog postlar)
--- Sayt yangiliklari yoki maqolalari
+--  2. projects (loihalar)
+-- Sayt yangiliklari 
 -- ======================================================
 CREATE TABLE projects (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `title` VARCHAR(150) NOT NULL,
     `description` TEXT,
     `image` VARCHAR(255),
-    `link` VARCHAR(255), 
+    `link` VARCHAR(255),
     `status` ENUM('active', 'inactive') DEFAULT 'active',
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+-- ======================================================
+--  3. blog (blog postlar)
+-- Sayt blog postlari
+-- ======================================================
+CREATE TABLE blogs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    link VARCHAR(255) DEFAULT NULL,
+    image VARCHAR(255) DEFAULT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+INSERT INTO blogs (title, description, image, link) VALUES
+('PHP vs Node.js: Qaysi biri yaxshiroq?', 
+ 'Ushbu maqolada PHP va Node.js ortasidagi farqlarni korib chiqamiz...',
+ 'https://via.placeholder.com/300x200', 
+ '#');
+
 
 INSERT INTO users (name, username, password)
-VALUES ('Doston Davlatov', 'admin', '$2y$10$rGZ0FsHyYKPqVGz8JYQYxuXxvczhPp1Gk0YX82nYj9ZlhkD2PoUe2');
+VALUES ('Doston Davlatov', 'admin', '$2y$10$M7bOo5D228YqtxP1pUicGOYWtVryXknZUhTX1S2Mwjg3DtJzjEEJG');

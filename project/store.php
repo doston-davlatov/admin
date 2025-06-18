@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $insert = $db->insert('projects', [
                     'title' => $title,
                     'description' => $description,
-                    'image' => $uploadPath
+                    'image' => $fileName
                 ]);
 
                 if ($insert) {

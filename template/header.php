@@ -18,21 +18,23 @@ $menuItems = [
         ],
     ],
     [
-        "menuTitle" => "Projects",
+        "menuTitle" => "Prayektlar",
         "icon" => "fas fa-folder",
         "pages" => [
-            ["title" => "Yaratish Projectlar", "url" => "create_project.php"],
-            ["title" => "Projectlar", "url" => "projects.php"]
+            ["title" => "Prayekt yaratish", "url" => "project_create.php"],
+            ["title" => "Prayektlar", "url" => "projects.php"]
         ],
     ],
     [
-        "menuTitle" => "Project edit",
+        "menuTitle" => "Blog",
         "icon" => "fas fa-folder",
         "pages" => [
-            ["title" => "Yangilash Projectni", "url" => "project/edt.php"],
-            ["title" => "Projectlar", "url" => "projects.php"]
+            ["title" => "Ma'lumot qo'shish ", "url" => "blog_create.php"],
+            ["title" => "Bloglar", "url" => "blogs.php"]
         ],
-    ]
+    ],
+    
+    
 ];
 
 $active_pageInfo = null;
@@ -67,22 +69,20 @@ $active_page = $active_pageInfo['active_page'] ?? null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <title><?= htmlspecialchars($page_title) ?></title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <!-- CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/adminlte.min.css">
+    <link rel="stylesheet" href="../src/css/adminlte.min.css">
     <!-- JS -->
     <script src="./src/js/jquery.min.js"></script>
     <script src="./src/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-    <script src="./src/js/adminlte.min.js" defer></script>
+    <script src="../src/js/adminlte.min.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <!-- Body started -->
     <div class="wrapper">
-        <!-- Wrapper started -->
 
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <ul class="navbar-nav">
@@ -92,7 +92,7 @@ $active_page = $active_pageInfo['active_page'] ?? null;
                     </a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="./" class="nav-link">Home</a>
+                    <a href="../" class="nav-link">Home</a>
                 </li>
             </ul>
             <form class="form-inline ml-3">
@@ -140,17 +140,17 @@ $active_page = $active_pageInfo['active_page'] ?? null;
         </div>
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="./" class="brand-link">
-                <img src="./src/images/logo.svg" alt="Logo" class="brand-image img-circle bg-white">
+            <a href="../" class="brand-link">
+                <img src="../src/images/logo.svg" alt="Logo" class="brand-image img-circle bg-white">
                 <span class="brand-text font-weight-light">
                     Admin Panel
                 </span>
             </a>
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3">
-                    <a href="./profile.php" class="d-flex">
+                    <a href="../profile.php" class="d-flex">
                         <div class="image">
-                            <img src="./src/images/profile_picture/default.png" class="img-circle elevation-2 bg-white" alt="User Image">
+                            <img src="../src/images/profile_picture/default.png" class="img-circle elevation-2 bg-white" alt="User Image">
                         </div>
                         <div class="info">
                             Doston Davlatov
@@ -195,8 +195,5 @@ $active_page = $active_pageInfo['active_page'] ?? null;
         </aside>
 
         <div class="content-wrapper">
-            <!-- Content-wrapper started -->
             <section class="content">
-                <!-- Content section started -->
                 <div class="container-fluid">
-                    <!-- Container-fluid started -->

@@ -1,5 +1,6 @@
 <?php
-include '../config.php';
+session_start();
+require '../config.php';
 $db = new Database();
 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -17,8 +18,8 @@ if (!$project || count($project) === 0) {
 }
 $project = $project[0];
 
-$imagePath = $project['image'];
-if ($imagePath && file_exists($imagePath)) {
+$imagePath = '../src/images/' . $project['image'];
+if ($project['image'] && file_exists($imagePath)) {
     unlink($imagePath);
 }
 

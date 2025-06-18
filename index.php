@@ -6,67 +6,92 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 ?>
-<?php include './header.php'; ?>
+<?php include './template/header.php'; ?>
 
-<div class="row">
-    <div class="col-lg-3 col-6">
-        <div class="small-box bg-info">
-            <div class="inner">
-                <h3>150</h3>
-                <p>New Orders</p>
+<style>
+    .dashboard-card {
+        border-radius: 1rem;
+        color: #fff;
+        padding: 1.2rem;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+    .dashboard-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .dashboard-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 3rem;
+        opacity: 0.3;
+    }
+    .dashboard-footer {
+        margin-top: 1rem;
+        font-weight: 500;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.9rem;
+        color: #fff;
+        opacity: 0.9;
+        text-decoration: none;
+    }
+    .dashboard-footer:hover {
+        opacity: 1;
+    }
+</style>
+
+<div class="row g-4">
+
+    <div class="col-lg-3 col-md-6">
+        <div class="dashboard-card bg-primary shadow">
+            <div>
+                <h2>1500</h2>
+                <p>Umumiy foydalanuvchilar</p>
             </div>
-            <div class="icon">
-                <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info
-                <i class="fas fa-arrow-circle-right"></i>
-            </a>
+            <i class="fas fa-users dashboard-icon"></i>
+            <a href=".#" class="dashboard-footer">Batafsil <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 
-    <div class="col-lg-3 col-6">
-        <div class="small-box bg-success">
-            <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-                <p>Bounce Rate</p>
+    <div class="col-lg-3 col-md-6">
+        <div class="dashboard-card bg-success shadow">
+            <div>
+                <h2>245</h2>
+                <p>Yangi buyurtmalar</p>
             </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info
-                <i class="fas fa-arrow-circle-right"></i>
-            </a>
+            <i class="fas fa-shopping-cart dashboard-icon"></i>
+            <a href="#" class="dashboard-footer">Batafsil <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 
-    <div class="col-lg-3 col-6">
-        <div class="small-box bg-warning">
-            <div class="inner">
-                <h3>44</h3>
-                <p>User Registrations</p>
+    <div class="col-lg-3 col-md-6">
+        <div class="dashboard-card bg-warning shadow">
+            <div>
+                <h2>678</h2>
+                <p>Bugungi tashriflar</p>
             </div>
-            <div class="icon">
-                <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info
-                <i class="fas fa-arrow-circle-right"></i></a>
+            <i class="fas fa-chart-line dashboard-icon"></i>
+            <a href="#" class="dashboard-footer">Batafsil <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 
-    <div class="col-lg-3 col-6">
-        <div class="small-box bg-danger">
-            <div class="inner">
-                <h3>65</h3>
-                <p>Unique Visitors</p>
+    <div class="col-lg-3 col-md-6">
+        <div class="dashboard-card bg-danger shadow">
+            <div>
+                <h2>25</h2>
+                <p>Online foydalanuvchilar</p>
             </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info
-                <i class="fas fa-arrow-circle-right"></i>
-            </a>
+            <i class="fas fa-signal dashboard-icon"></i>
+            <a href="#" class="dashboard-footer">Batafsil <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
+
 </div>
 
-<?php include './footer.php'; ?>
+
+<?php include './template/footer.php'; ?>

@@ -2,8 +2,15 @@
 session_start();
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-    header('Location: ../admin/');
-    exit;
+    if ($_SESSION['user']['role'] === 'admin') {
+        header('Location: ../admin/');
+        exit;
+    } elseif ($_SESSION['user']['role'] === 'user') {
+        header('Location: ../');
+        exit;
+    } else {
+        exit("Bunday role mavjud emas!");
+    }
 }
 
 include "../config.php";
@@ -29,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if ($user && isset($user[0])) {
         $id = $user[0]['id'];
         $name = $user[0]['name'];
+        $role = $user[0]['role'];
         $hashedPassword = $user[0]['password'];
 
         if (password_verify($password, $hashedPassword)) {
@@ -36,12 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $_SESSION['user'] = [
                 'id' => $id,
                 'name' => $name,
-                'username' => $username
+                'username' => $username,
+                'role' => $role,
             ];
+
             echo json_encode([
                 'success' => true,
                 'title' => '✅ Muvaffaqiyat!',
                 'message' => 'Tizimga kirdingiz!',
+                'redirect' => $role === 'admin' ? '../admin/' : '../'
             ]);
             exit;
         } else {
@@ -101,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Login</button>
                         </form>
+                        <p class="text-center mt-3">Don't have an account? <a href="../signup/">Sign Up</a></p>
                     </div>
                 </div>
             </div>
@@ -147,7 +159,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             showConfirmButton: false,
                             timer: 1500
                         }).then(() => {
-                            window.location.href = './';
+                            if (result.redirect) {
+                                window.location.href = result.redirect;
+                            }
                         });
                     } else {
                         Swal.fire({
